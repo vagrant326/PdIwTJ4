@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="net.javabeat.hibernate.Address" table="address">
+		<meta attribute="class-description">This class contains the address of each person
+			details.</meta>
+		<id name="personId" type="java.lang.Long">
+			<column name="PERSON_ID" />
+			<generator class="foreign">
+                <param name="property">person</param>
+            </generator>
+
+		</id>
+		<one-to-one name="person" class="net.javabeat.hibernate.Person"
+			constrained="true"></one-to-one>
+		<property name="street" column="ADDRESS_STREET" type="string"
+			length="250" />
+		<property name="city" column="ADDRESS_CITY" type="string"
+			length="50" />
+		<property name="state" column="ADDRESS_STATE" type="string"
+			length="50" />
+		<property name="zipcode" column="ADDRESS_ZIPCODE" type="string"
+			length="10" />
+
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="net.javabeat.hibernate.Phone" table="Phone">
+        <id name="id" column="id" type="java.lang.Long" unsaved-value="0" >
+           <generator class="increment"/>
+        </id>
+        <property name="number" column="number" type="java.lang.String"/>
+        <many-to-one name="person" class="net.javabeat.hibernate.Person"
+            column="personId"/>
+    </class>
+</hibernate-mapping>
